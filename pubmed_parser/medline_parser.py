@@ -60,7 +60,7 @@ def parse_doi(pubmed_article):
         article_ids = pubmed_article.find('PubmedData/ArticleIdList')
         if article_ids is not None:
             doi = article_ids.find('ArticleId[@IdType="doi"]')
-            doi = doi.text.strip() if doi is not None else ''
+            doi = doi.text.strip() if (doi is not None) and (doi.text is not None) else ''
         else:
             doi = ''
     return doi
